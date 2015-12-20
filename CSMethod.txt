@@ -1,0 +1,59 @@
+/*
+Joey Meyer
+C# Programming
+September 8th 2011
+Two methods that produce Sum, Product, Average, and Squared results of the two entered values.
+*/
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Methprod
+{
+	class Program
+	{
+		 static void Main(string[] args)
+		 {
+			EnterValues();
+		 }
+		 Public static void EnterValues()
+		 {
+			Console.Write("Please enter value one: ");
+			double valOne = Convert.ToDouble(Console.ReadLine());
+			Console.Write("Please enter value two: ");
+			double valTwo = Convert.ToDouble(Console.ReadLine());
+			Sum(valOne, valTwo);
+		 }
+		 public static void Sum(double valOne, double valTwo)
+		 {
+			double sum = valOne + valTwo;
+			Product(valOne, valTwo, sum);
+		 }
+		 public static void Product(double valOne, double valTwo, double sum)
+		 {
+			double product = valOne * valTwo;
+			Average(valOne, valTwo, sum, product);
+		 }
+		 public static void Average(double valOne, double valTwo, double sum, double product)
+		 {
+			double average = sum / 2;
+			Square(valOne, valTwo, product, average);
+		 }
+		 public static void Square(double valOne, double valTwo, double sum, double product, double average)
+		 {
+			double squareOne = Math.Sqrt(valOne);
+			double squareTwo = Math.Sqrt(valTwo);
+			Output(sum, product, average, squareOne, squareTwo);
+		 }
+		 public static void Output(double sum, double product, double average, double squareOne, doubleTwo)
+		 {
+			Console.WriteLine("The sum of the values: " + sum);
+			Console.WriteLine("The product of the values: " + product);
+			Console.WriteLine("The average of the values: " + average);
+			Console.WriteLine("The square of the value one is: " + squareOne);
+			Console.WriteLine("The square of the value two is: " + squareTwo);
+		 }
+	}
+}

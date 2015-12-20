@@ -1,0 +1,67 @@
+/*
+Joey Meyer
+C# Programming
+September 8th 2011
+Writing to a file.
+*/
+
+using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace FileWrite
+{
+	class Program
+	{
+		 static void Main(string[] args)
+		 {
+			SteamWriter sw;
+			sw = File.CreateText("c'\\Test.txt");
+			
+			Console.WriteLine("What is your first name? ");
+			string fName = Console.ReadLine();
+			
+			Console.WriteLine("What is your last name? ");
+			string lName = Console.ReadLine();
+			
+			Console.WriteLine("What is your address? ");
+			string address = Console.ReadLine();
+			
+			Console.WriteLine("What is your phone number? ");
+			string pNum = Console.ReadLine();
+			
+			sw.WriteLine("Name: " + fName + " " + lName);
+			sw.WriteLine("Address: " + address);
+			sw.WriteLine("Phone: " + "*" + pNum + "*");
+			sw.Close();
+			Console.WriteLine("File created successfully");
+			
+			Console.WriteLine("Would you like to retrieve the data from the file? ");
+			string answer = Console.ReadLine();
+			
+			if (answer == "y" || answer == "Y")
+			{
+				if (!File.Exists("c:\\Test.txt"))
+				{
+					Console.WriteLine("{0} does not exist.", "c:\\Test.txt");
+					return;
+				}
+				using (StreamReader sr = File.OpenText(c:\\Test.txt))
+				{
+					String input;
+					while((input = sr.ReadLine()) !=null)
+					{
+						Console.WriteLine(input);
+					}
+					Console.WriteLine("The end of the stream has been reached.")
+				}
+			}
+			else
+			{
+				return;
+			}
+		 }
+	}
+}
